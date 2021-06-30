@@ -1,0 +1,39 @@
+.header__container {
+  padding: 2rem 0;
+  width: 70%;
+}
+
+.header__search {
+  display: flex;
+  align-items: center;
+  width: fit-content;
+  padding: 1rem;
+  background-color: #fff;
+  box-shadow: 1px 1px 2px 2px #35353526;
+  gap: 1rem;
+  border-radius: 1px;
+}
+
+.header__search img {
+  height: 20px;
+  width: 20px;
+}
+
+.header__search input {
+  outline: none;
+  border: none;
+  font-size: 1.2rem;
+  letter-spacing: 1.2px;
+}
+
+@media screen and (max-width: 700px) {
+  .header__container {
+    padding: 1rem 0;
+    width: 90%;
+  }
+
+  .header__search input {
+    font-size: 1rem;
+    letter-spacing: 1px;
+  }
+}

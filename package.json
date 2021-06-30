@@ -1,0 +1,21 @@
+{
+  "name": "create-next-app",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "dev": "next dev",
+    "start": "next start",
+    "build": "next build",
+    "export": "next export"
+  },
+  "dependencies": {
+    "comma-number": "^2.1.0",
+    "next": "^11.0.1",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2"
+  },
+  "keywords": [],
+  "author": "shanmukeshwar",
+  "license": "ISC"
+}

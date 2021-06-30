@@ -1,0 +1,27 @@
+.appbar__container {
+  width: 100vw;
+  display: flex;
+  align-items: center;
+  position: static;
+  top: 0;
+  padding: 1.2rem 0;
+  box-shadow: 2px 2px 2px 2px #1a1a1a2a;
+  background-color: #fff;
+}
+
+.appbar__container > div {
+  margin: 0 15%;
+  font-size: 1.6rem;
+  font-weight: bold;
+}
+
+@media screen and (max-width: 700px) {
+  .appbar__container {
+    padding: 1rem 0;
+  }
+
+  .appbar__container > div {
+    margin: 0 3%;
+    font-size: 1.4rem;
+  }
+}
