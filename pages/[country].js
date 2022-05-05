@@ -3,8 +3,10 @@ import countries from "utils/countries";
 import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
 import Link from "next/link";
+import Properties from "components/Property";
 
 const insertCommas = (arr) => {
+  if (typeof arr !== Array) return arr;
   let data = "";
   arr.forEach((element) => {
     data += element + " , ";
@@ -25,69 +27,44 @@ const Country = () => {
   }
 
   return (
-    <div className="country__container">
-      <img src={country.flags.svg} />
-      <div>
-        <span className="country__title">{country.name.common}</span>
-        <div className="country__details">
-          <span>
-            <span className="span__title">Official</span> :{" "}
-            <span className="span__value">{country.name.official}</span>
-          </span>
-          <span>
-            <span className="span__title">Independent Country</span> :{" "}
-            <span className="span__value">
-              {country.independent.toString()}
-            </span>
-          </span>
-          <span>
-            <span className="span__title">Top Level Domain</span> :{" "}
-            <span className="span__value">{insertCommas(country.tld)}</span>
-          </span>
-          <span>
-            <span className="span__title">Population</span> :{" "}
-            <span className="span__value">
-              {commaNumber(country.population)}
-            </span>
-          </span>
-          <span>
-            <span className="span__title">Currencies</span> :{" "}
-            <span className="span__value">
-              {country.currencies[Object.keys(country.currencies)[0]]["name"]}
-              {` (${
-                country.currencies[Object.keys(country.currencies)[0]]["symbol"]
-              })`}
-            </span>
-          </span>
-          <span>
-            <span className="span__title">Region</span> :{" "}
-            <span className="span__value">{country.region}</span>
-          </span>
-          <span>
-            <span className="span__title">Sub Region</span> :{" "}
-            <span className="span__value">{country.subregion}</span>
-          </span>
-          <span>
-            <span className="span__title">Languages</span> :{" "}
-            <span className="span__value">
-              {insertCommas(Object.values(country.languages))}
-            </span>
-          </span>
-          <span>
-            <span className="span__title">Capital</span> :{" "}
-            <span className="span__value">{country.capital}</span>
-          </span>
-          <span>
-            <span className="span__title">View in maps</span> :
-            <span className="span__value">
-              {<Link href={country.maps.googleMaps}> Google Maps</Link>}
-            </span>
-          </span>
-          <span>
-            <span className="span__title">border countries</span> :{" "}
-            <span className="span__value">{insertCommas(country.borders)}</span>
-          </span>
-        </div>
+    <div className="flex flex-col shadow-lg m-10 rounded-lg lg:flex-row ">
+      <img className="max-w-lg" src={country.flags.svg} />
+      <div className="flex flex-col p-6">
+        <Properties title="Country" meaning={country.name.common} />
+        <Properties title="Official" meaning={country.name.official} />
+        <Properties
+          title="Independent Country"
+          meaning={country.independent.toString()}
+        />
+        <Properties
+          title="Top Level Domain"
+          meaning={insertCommas(country.tld)}
+        />
+        <Properties
+          title="Population"
+          meaning={commaNumber(country.population)}
+        />
+        <Properties
+          title="Currencies"
+          meaning={`${
+            country.currencies[Object.keys(country.currencies)[0]]["name"]
+          }`}
+        />
+        <Properties title="Region" meaning={country.region} />
+        <Properties title="Sub Region" meaning={country.subregion} />
+        <Properties
+          title="Languages"
+          meaning={insertCommas(Object.values(country.languages))}
+        />
+        <Properties title="Capital" meaning={country.capital} />
+        <Properties
+          title="View in maps"
+          meaning={<Link href={country.maps.googleMaps}> Google Maps</Link>}
+        />
+        <Properties
+          title="Border countries"
+          meaning={insertCommas(country.borders)}
+        />
       </div>
     </div>
   );
